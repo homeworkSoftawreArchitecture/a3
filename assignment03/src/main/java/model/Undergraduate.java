@@ -1,18 +1,28 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Undergraduate implements User {
-    String name:
+    String name;
     String id;
-    Int age;
-    boolean gender;
+    int age;
     String department;
 
-    public boolean borrowBooks(Books books) {
-
+    private Undergraduate(String name, String id, int age, String department) {
+        this.age = age;
+        this.department = department;
+        this.id = id;
+        this.name = name;
     }
 
-    public boolean editInfo() {
+    @Override
+    public boolean borrowBooks(ArrayList<Book> books) {
+        return false;
+    }
 
+    @Override
+    public boolean editInfo() {
+        return false;
     }
 
     public void setId(String id) {
@@ -23,11 +33,7 @@ public class Undergraduate implements User {
         return id;
     }
 
-    public boolean isGender() {
-        return gender;
-    }
-
-    public Int getAge() {
+    public int getAge() {
         return age;
     }
 
@@ -43,15 +49,11 @@ public class Undergraduate implements User {
         this.name = name;
     }
 
-    public void setAge(Int age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
     public void setDepartment(String department) {
         this.department = department;
-    }
-
-    public void setGender(boolean gender) {
-        this.gender = gender;
     }
 }
