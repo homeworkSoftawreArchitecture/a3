@@ -1,4 +1,4 @@
 package model;
 
-public class Teacher {
+public class Teacher:User {
 }
