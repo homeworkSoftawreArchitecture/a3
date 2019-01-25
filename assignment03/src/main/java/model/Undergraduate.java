@@ -10,7 +10,7 @@ public class Undergraduate extends User {
     String type = "undergraduate";
     int permission;
     String department;
-    String penaltReport;
+    String penaltyReport;
     String borrowingReport;
 
     public Undergraduate(String name, String id, int permission, String department) {
@@ -28,8 +28,8 @@ public class Undergraduate extends User {
     }
 
     @Override
-    public String getPenaltReport() {
-        return penaltReport;
+    public String getPenaltyReport() {
+        return penaltyReport;
     }
 
     @Override

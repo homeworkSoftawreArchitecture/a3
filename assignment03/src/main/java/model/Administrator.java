@@ -25,7 +25,7 @@ public class Administrator {
     }
 
     public void generatePenaltyReport(User user) {
-        user.getPenaltReport();
+        user.getPenaltyReport();
         System.out.println(user.getName() + " get penalty report");
     }
 

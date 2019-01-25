@@ -9,7 +9,7 @@ public class User {
     int permission;
     String department;
     String borrowingReport;
-    String penaltReport;
+    String penaltyReport;
 
     public boolean borrowBooks(ArrayList<Book> books) {
         return false;
@@ -28,8 +28,8 @@ public class User {
         return borrowingReport;
     }
 
-    public String getPenaltReport() {
-        return penaltReport;
+    public String getPenaltyReport() {
+        return penaltyReport;
     }
 
     public String getType() {
