@@ -1,68 +1,44 @@
 package model;
 
+import service.GraduateBorrowStrategy;
+
 import java.util.ArrayList;
 
-public class Graduate implements User {
+public class Graduate extends User {
     String name;
     String id;
-    int age;
-    boolean gender;
+    String type = "graduate";
+    int permission;
     String department;
+    String penaltReport;
+    String borrowingReport;
 
-    private Graduate(String name, String id, int age, String department) {
-        this.age = age;
+    public Graduate(String name, String id, int permission, String department) {
         this.department = department;
+        this.permission = permission;
         this.id = id;
         this.name = name;
     }
 
     @Override
     public boolean borrowBooks(ArrayList<Book> books) {
+        GraduateBorrowStrategy graduateBorrowStrategy = new GraduateBorrowStrategy();
+        graduateBorrowStrategy.borrow(books);
         return false;
     }
 
     @Override
-    public boolean editInfo() {
-        return false;
+    public String getPenaltReport() {
+        return penaltReport;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    @Override
+    public String getBorrowingReport() {
+        return borrowingReport;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public boolean isGender() {
-        return gender;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
+    @Override
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public void setGender(boolean gender) {
-        this.gender = gender;
     }
 }
