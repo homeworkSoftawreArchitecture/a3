@@ -1,10 +1,17 @@
 import model.*;
 
 import java.util.ArrayList;
+import model.PDFReader;
+import model.Reader;
+import model.WordReader;
+
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
+
         System.out.println("Hello world!");
+
         Administrator administrator = new Administrator("admin","0001");
         Teacher teacher = new Teacher("teacher","0002",0,"Software");
         Graduate graduate = new Graduate("graduate","0003",0,"Software");
@@ -26,5 +33,20 @@ public class Main {
 
         administrator.generateBorrowingReport(teacher);
         administrator.generatePenaltyReport(undergraduate);
+
+        Reader pdfReader = new PDFReader();
+        Reader wordReader = new WordReader();
+        /*
+        try {
+            System.out.println(pdfReader.read("/Users/apple/a3/assignment03/assignment-3.pdf"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        */
+        try {
+            System.out.println(wordReader.read("/Users/apple/a3/assignment03/Õ‚¡™’Àµ•.docx"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
