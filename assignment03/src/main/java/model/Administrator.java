@@ -10,7 +10,7 @@ public class Administrator {
     }
 
     public boolean editBookInfo() {
-
+        return true;
     }
 
     public void generateBorrowingReport() {
