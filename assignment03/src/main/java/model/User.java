@@ -1,5 +1,7 @@
 package model;
 
+import service.PermissionProxy;
+
 import java.util.ArrayList;
 
 public class User {
@@ -15,6 +17,15 @@ public class User {
         return false;
     }
 
+    public boolean searchUserInfo(User user, String info) {
+        PermissionProxy permissionProxy = new PermissionProxy();
+        return permissionProxy.searchUserInfo(user, info);
+    }
+
+    public boolean createUserInfo(User user, String info) {
+        PermissionProxy permissionProxy = new PermissionProxy();
+        return permissionProxy.createUserInfo(user, info);
+    }
 
     public boolean editInfo() {
         return false;
