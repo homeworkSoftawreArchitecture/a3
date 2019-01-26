@@ -1,60 +1,44 @@
 package model;
 
+import service.TeacherBorrowStrategy;
+
 import java.util.ArrayList;
 
-public class Teacher implements User {
+public class Teacher extends User {
     String name;
     String id;
-    int age;
+    String type = "teacher";
+    int permission;
     String department;
+    String penaltyReport;
+    String borrowingReport;
 
-    private Teacher(String name, String id, int age, String department) {
-        this.age = age;
+    public Teacher(String name, String id, int permission, String department) {
         this.department = department;
+        this.permission = permission;
         this.id = id;
         this.name = name;
     }
 
     @Override
     public boolean borrowBooks(ArrayList<Book> books) {
+        TeacherBorrowStrategy teacherBorrowStrategy = new TeacherBorrowStrategy();
+        teacherBorrowStrategy.borrow(books);
         return false;
     }
 
     @Override
-    public boolean editInfo() {
-        return false;
+    public String getPenaltyReport() {
+        return penaltyReport;
     }
 
-    public String getId() {
-        return id;
+    @Override
+    public String getBorrowingReport() {
+        return borrowingReport;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
+    @Override
     public String getName() {
         return name;
     }
-
-    public int getAge() {
-        return age;
-    }
-
 }
