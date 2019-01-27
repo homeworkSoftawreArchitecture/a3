@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="epublib-core-latest">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/epublib-core-latest.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
