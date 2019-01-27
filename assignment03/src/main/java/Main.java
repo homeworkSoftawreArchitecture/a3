@@ -47,26 +47,38 @@ public class Main {
         // generatePenaltyReport
         administrator.generatePenaltyReport(undergraduate);
 
-        Reader pdfReader = new PDFReader();
-        Reader wordReader = new WordReader();
-        Reader epubReader = new EPUBReader();
-        try {
-            System.out.println(epubReader.read("/Users/apple/a3/assignment03/1.epub"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        /*
-        try {
-            System.out.println(pdfReader.read("/Users/apple/a3/assignment03/assignment-3.pdf"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //teacher read online document
+        System.out.println("teacher read following files:");
+        teacher.readOnlineDocument("./pdfFile.pdf","pdf");
+        teacher.readOnlineDocument("./wordFile.docx","word");
+        teacher.readOnlineDocument("./epubFile.epub","epub");
 
-        try {
-            System.out.println(wordReader.read("/Users/apple/a3/assignment03/Õ‚¡™’Àµ•.docx"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
+        //graduate read online document
+        System.out.println("graduate read following files:");
+        graduate.readOnlineDocument("./pdfFile.pdf","pdf");
+        graduate.readOnlineDocument("./wordFile.docx","word");
+        graduate.readOnlineDocument("./epubFile.epub","epub");
+
+        //undergraduate read online document
+        System.out.println("undergraduate read folloeing files:");
+        undergraduate.readOnlineDocument("./pdfFile.pdf","pdf");
+        undergraduate.readOnlineDocument("./wordFile.docx","word");
+        undergraduate.readOnlineDocument("./epubFile.epub","epub");
+
+        //teacher edit personal info
+        teacher.registerAdministrator(administrator);
+        teacher.editInfo("name","teacher2.0");
+        teacher.editInfo("department","Finance");
+
+        //graduate edit personal info
+        graduate.registerAdministrator(administrator);
+        graduate.editInfo("name","graduate2.0");
+        graduate.editInfo("department","Finance");
+
+        //undergraduate edit personal info
+        undergraduate.registerAdministrator(administrator);
+        undergraduate.editInfo("name","undergraduate2.0");
+        undergraduate.editInfo("department","Finance");
+
     }
 }
