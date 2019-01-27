@@ -18,10 +18,10 @@ public class EPUBReader implements Reader{
 
             InputStream inputStr = new FileInputStream(path);
             book = epubReader.readEpub(inputStr);
-            //book.getMetadata().addTitle("Epublib test book 1");
-            //book.getMetadata().addAuthor(new Author("Joe", "Tester"));
-            sb.append("Title "+book.getTitle()+"\n");
-            sb.append("Author "+book.getMetadata().getAuthors().get(0)+"\n");
+            book.getMetadata().addTitle("Epublib test book 1");
+            book.getMetadata().addAuthor(new Author("Joe", "Tester"));
+            sb.append("Title "+book.getName()+"\n");
+            sb.append("Author "+book.getAuthor()+"\n");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
