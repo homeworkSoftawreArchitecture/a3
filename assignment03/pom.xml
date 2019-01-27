@@ -27,11 +27,6 @@
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>4.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>3.15-beta2</version>
         </dependency>
@@ -39,6 +34,11 @@
             <groupId>nl.siegmann.epublib</groupId>
             <artifactId>epublib-core</artifactId>
             <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.0.1</version>
         </dependency>
     </dependencies>
 </project>
