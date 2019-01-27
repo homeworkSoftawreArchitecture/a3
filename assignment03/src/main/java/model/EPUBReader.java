@@ -1,11 +1,8 @@
 package model;
 
 import java.io.*;
-
-import nl.siegmann.epublib.domain.Author;
 import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.epub.EpubReader;
-import nl.siegmann.epublib.epub.EpubWriter;
 
 
 public class EPUBReader implements Reader{

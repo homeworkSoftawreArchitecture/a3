@@ -1,6 +1,7 @@
-package service;
+package serviceImpl;
 
 import model.User;
+import service.Permission;
 
 public class PermissionProxy implements Permission {
     // proxy intro:
