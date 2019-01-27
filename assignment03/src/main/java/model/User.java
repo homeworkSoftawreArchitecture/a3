@@ -1,10 +1,13 @@
 package model;
 
-import service.PermissionProxy;
+import factory.ReaderFactory;
+import serviceImpl.PermissionProxy;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
-public class User {
+public class User implements Subject{
     String name;
     String id;
     String type;
@@ -12,6 +15,8 @@ public class User {
     String department;
     String borrowingReport;
     String penaltyReport;
+    List<Administrator> administratorList = new ArrayList<Administrator>();
+
 
     public boolean borrowBooks(ArrayList<Book> books) {
         return false;
@@ -27,8 +32,16 @@ public class User {
         return permissionProxy.createUserInfo(user, info);
     }
 
-    public boolean editInfo() {
-        return false;
+    public boolean editInfo(String infoname, String newinfo) {
+        String message = this.getName()+" changes "+infoname+" ,new info = "+newinfo;
+        if(infoname.equals("name")){
+            this.name = newinfo;
+        }
+        if(infoname.equals("department")){
+            this.department = newinfo;
+        }
+        this.notifyAllAdministrator(message);
+        return true;
     }
 
     public void setPermission(int permission) {
@@ -73,5 +86,31 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+    public void readOnlineDocument(String path,String format){
+        Reader reader = ReaderFactory.getReader(format);
+        try {
+            System.out.println(reader.read(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void registerAdministrator(Administrator administrator) {
+        administratorList.add(administrator);
+    }
+
+    @Override
+    public void removeAdministrator(Administrator administrator) {
+        administratorList.remove(administrator);
+    }
+
+    @Override
+    public void notifyAllAdministrator(String message) {
+        for(Administrator administrator: administratorList){
+            administrator.update(message);
+        }
     }
 }

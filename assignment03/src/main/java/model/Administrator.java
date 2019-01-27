@@ -1,8 +1,8 @@
 package model;
 
-import service.PermissionProxy;
+import serviceImpl.PermissionProxy;
 
-public class Administrator {
+public class Administrator implements Observer{
     String name;
     String id;
 
@@ -52,5 +52,10 @@ public class Administrator {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public void update(String message) {
+        System.out.println(this.name+" get message: "+message);
     }
 }
